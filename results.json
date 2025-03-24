@@ -1,0 +1,50 @@
+[
+    {
+        "Type2_Accuracy": 0.72,
+        "Type2_Type3_Accuracy": 0.72,
+        "Type2_Type3_Type4_Accuracy": 0.72,
+        "Final_Accuracy": 0.7200000000000001,
+        "Average_Confidence": {
+            "Type2": 0.66876,
+            "Type3": 0.66876,
+            "Type4": 0.66876
+        },
+        "Group": "AppGallery &amp; Games "
+    },
+    {
+        "Type2_Accuracy": 0.8235294117647058,
+        "Type2_Type3_Accuracy": 0.8235294117647058,
+        "Type2_Type3_Type4_Accuracy": 0.8235294117647058,
+        "Final_Accuracy": 0.823529411764706,
+        "Average_Confidence": {
+            "Type2": 0.9622107843137253,
+            "Type3": 0.9622107843137253,
+            "Type4": 0.9622107843137253
+        },
+        "Group": "In-App Purchase "
+    },
+    {
+        "Type2_Accuracy": 0.72,
+        "Type2_Type3_Accuracy": 0.72,
+        "Type2_Type3_Type4_Accuracy": 0.72,
+        "Final_Accuracy": 0.7200000000000001,
+        "Average_Confidence": {
+            "Type2": 0.66876,
+            "Type3": 0.66876,
+            "Type4": 0.66876
+        },
+        "Group": "AppGallery &amp; Games "
+    },
+    {
+        "Type2_Accuracy": 0.8235294117647058,
+        "Type2_Type3_Accuracy": 0.8235294117647058,
+        "Type2_Type3_Type4_Accuracy": 0.8235294117647058,
+        "Final_Accuracy": 0.823529411764706,
+        "Average_Confidence": {
+            "Type2": 0.9622107843137253,
+            "Type3": 0.9622107843137253,
+            "Type4": 0.9622107843137253
+        },
+        "Group": "In-App Purchase "
+    }
+]
