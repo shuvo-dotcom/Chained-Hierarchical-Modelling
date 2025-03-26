@@ -32,8 +32,6 @@ def get_data_object(X: np.ndarray, df: pd.DataFrame):
 def perform_modelling(data: Data, df: pd.DataFrame, name):
     # Prepare data for each type
     type2_data = Data(data.get_embeddings(), df)
-    type3_data = Data(data.get_embeddings(), df)
-    type4_data = Data(data.get_embeddings(), df)
     
     # Create and train chained predictor
     predictor = ChainedPredictor(type2_data)
