@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from sklearn.multioutput import MultiOutputClassifier
 from model.base import BaseModel
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix
@@ -29,11 +30,15 @@ class RandomForest(BaseModel):
         self.scaler = StandardScaler()
         
         # Create ensemble of models with different parameters
-        self.models = [
+        # Create ensemble of models with different parameters
+        base_models = [
             RandomForestClassifier(n_estimators=1000, random_state=seed, class_weight='balanced_subsample'),
             RandomForestClassifier(n_estimators=800, random_state=seed+1, class_weight='balanced'),
             RandomForestClassifier(n_estimators=1200, random_state=seed+2, class_weight='balanced_subsample')
         ]
+        
+        # Wrap each base model with MultiOutputClassifier
+        self.models = [MultiOutputClassifier(model) for model in base_models]
         self.predictions = None
         self.confidence_scores = None
         self.data_transform()
@@ -46,12 +51,15 @@ class RandomForest(BaseModel):
         # Scale the features
         X_train_scaled = self.scaler.fit_transform(data.X_train)
         
+        # Reshape y_train to 2D array if it's 1D
+        y_train_reshaped = data.y_train.reshape(-1, 1) if len(data.y_train.shape) == 1 else data.y_train
+        
         # Train each model in the ensemble
         for model in self.models:
-            model.fit(X_train_scaled, data.y_train)
+            model.fit(X_train_scaled, y_train_reshaped)
             
         # Perform cross-validation
-        cv_scores = cross_val_score(self.models[0], X_train_scaled, data.y_train, cv=num_folds)
+        cv_scores = cross_val_score(self.models[0], X_train_scaled, y_train_reshaped, cv=num_folds)
         print(f"\nCross-validation scores for {self.model_name}:")
         print(f"Mean CV Score: {cv_scores.mean():.3f} (+/- {cv_scores.std() * 2:.3f})")
 
@@ -70,17 +78,17 @@ class RandomForest(BaseModel):
         
         for model in self.models:
             pred = model.predict(X_test_scaled)
-            prob = model.predict_proba(X_test_scaled)
+            prob = model.predict_proba(X_test_scaled)[0]  # Take first output's probabilities
             all_predictions.append(pred)
             all_probabilities.append(prob)
         
         # Combine predictions using majority voting
         final_predictions = np.zeros(len(X_test), dtype=np.int32)
-        final_probabilities = np.zeros((len(X_test), all_probabilities[0].shape[1]))
+        final_probabilities = np.zeros((len(X_test), len(np.unique(self.y))))
         
         for i in range(len(X_test)):
             # Get predictions from all models for this sample
-            sample_predictions = [pred[i] for pred in all_predictions]
+            sample_predictions = [pred[i][0] for pred in all_predictions]  # Take first output
             sample_probabilities = [prob[i] for prob in all_probabilities]
             
             # Majority voting
