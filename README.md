@@ -1,92 +1,139 @@
-# Hierarchical Multi-Output Modeling Pipeline
+# README.md
 
-## Overview
+## Component Documentation for Multi-Output Learning Implementations
 
-This repository contains a robust and flexible hierarchical multi-output modeling pipeline designed to manage complex data processing, modeling, and evaluation tasks. The pipeline integrates components for data ingestion, preprocessing, hierarchical neural network modeling, task-specific output management, evaluation, optimization, and extensive logging and validation.
+This repository contains detailed documentation for two different implementations of multi-output learning systems:
+1. Chained Multi-outputs
+2. Hierarchical Modelling
 
-## Pipeline Components
-
-### Data Handling
-
-- **Input Layer**: Handles data ingestion, validation, feature scaling, and preparation.
-- **Data Preprocessor**: Cleans and transforms data (e.g., normalization, encoding, dimensionality reduction).
-
-### Model Architecture
-
-- **Shared Layers**: Extract common features and learn shared patterns.
-- **Task-Specific Layers**: Manage specialized processing for each individual output.
-- **Output Integration**: Consolidates outputs, applies post-processing, and produces final predictions.
-
-### Training and Evaluation
-
-- **Model Trainer**: Executes training, optimization, early stopping, and checkpointing.
-- **Evaluation Module**: Conducts performance assessments, error analysis, and reporting.
-
-### Hierarchical Management
-
-- **Root Component**: Oversees the entire hierarchical modeling structure.
-- **Parent and Child Nodes**: Facilitate data flow and specialized task execution within hierarchy levels.
-- **Hierarchy Manager**: Maintains node relationships, dependency management, and structure integrity.
-
-### System Integration
-
-- **Data Router**: Distributes input data efficiently throughout the hierarchy.
-- **State Synchronizer**: Ensures consistency across nodes, manages recovery, and resolves conflicts.
-- **Model Optimizer**: Continuously tunes hyperparameters and optimizes resources.
-- **Validation Engine**: Performs rigorous validation across hierarchical levels.
-- **Logging System**: Tracks system events, performance metrics, and generates alerts.
-
-## Connector Types
-
-- **Root Connector**: Integrates external systems with the pipeline.
-- **Parent-Child Connector**: Manages hierarchical communication and data flow.
-- **Sibling Connector**: Facilitates peer-level data sharing and synchronization.
-- **Upward Connector**: Routes results and statuses from lower to upper hierarchy levels.
-- **Optimization and Validation Connectors**: Connect nodes to respective optimization and validation systems.
-
-## Getting Started
-
-### Installation
-```bash
-pip install -r requirements.txt
-```
-
-### Running the Pipeline
-```bash
-python hierarchical_main.py
-```
-
-### Configuration
-
-Adjust configurations in the designated configuration files or directly within the pipeline's entry script (`hierarchical_main.py`).
-
-## Project Structure
+### Repository Structure
 
 ```
-project/
-├── data/
-├── models/
-├── logs/
-├── model/
-│   ├── hierarchical_randomforest.py
-│   └── model_factory.py
-├── modelling/
-│   └── hierarchical_data_model.py
-├── preprocess/
-│   └── preprocessing_functions.py
-├── embeddings/
-│   └── embedding_generator.py
-├── utils/
-│   └── helpers.py
-├── requirements.txt
-└── hierarchical_main.py
+📁 Documentation/
+├── 📑 Chained_Multi_outputs_Components.xlsx
+├── 📑 Chained_Multi_outputs_Connectors.xlsx
+├── 📑 Hierarchical_Modelling_Components.xlsx
+└── 📑 Hierarchical_Modelling_Connectors.xlsx
 ```
 
-## Contributing
+### File Descriptions
 
-Feel free to submit pull requests, report issues, and contribute to enhancing the pipeline.
+#### 1. Chained Multi-outputs Documentation
+- **Components File**: `Chained_Multi_outputs_Components.xlsx`
+  - Component Name
+  - Purpose/Responsibility
+  - Implementation Details
+  - Description
 
-## License
+- **Connectors File**: `Chained_Multi_outputs_Connectors.xlsx`
+  - Connector Type
+  - Source
+  - Destination
+  - Data/Purpose
+  - Implementation
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+#### 2. Hierarchical Modelling Documentation
+- **Components File**: `Hierarchical_Modelling_Components.xlsx`
+  - Component Name
+  - Purpose/Responsibility
+  - Implementation Details
+  - Description
+
+- **Connectors File**: `Hierarchical_Modelling_Connectors.xlsx`
+  - Connector Type
+  - Source
+  - Destination
+  - Data/Purpose
+  - Implementation
+
+### Key Components Overview
+
+#### Chained Multi-outputs
+- Input Layer
+- Data Preprocessor
+- Shared Layers
+- Task-Specific Layers
+- Output Integration
+- Model Trainer
+- Evaluation Module
+- Pipeline Manager
+
+#### Hierarchical Modelling
+- Root Component
+- Parent Nodes
+- Child Nodes
+- Hierarchy Manager
+- Data Router
+- State Synchronizer
+- Model Optimizer
+- Validation Engine
+- Logging System
+
+### How to Use This Documentation
+
+1. **Getting Started**
+   - Open the relevant Excel file based on your implementation interest
+   - Use the filters to search for specific components or connectors
+   - Refer to the Implementation Details column for technical specifications
+
+2. **Understanding Components**
+   - Each component is documented with its specific purpose and responsibilities
+   - Implementation details provide technical guidance
+   - Description offers additional context and usage information
+
+3. **Understanding Connectors**
+   - Connectors show how components interact
+   - Follow the Source → Destination flow
+   - Implementation details specify how connections are established
+
+### Maintenance and Updates
+
+- All files should be version controlled
+- Update the "Last Modified" date when making changes
+- Document any major changes in the change log
+- Maintain consistency in formatting and documentation style
+
+### Best Practices
+
+1. **Documentation Updates**
+   - Keep implementation details current
+   - Update dependencies when changed
+   - Maintain clear and consistent descriptions
+   - Add examples where helpful
+
+2. **Version Control**
+   - Track all major changes
+   - Maintain changelog entries
+   - Include rationale for significant changes
+   - Document migration paths for updates
+
+3. **Quality Assurance**
+   - Verify all component connections
+   - Ensure documentation matches implementation
+   - Cross-reference related components
+   - Validate technical accuracy
+
+### Contributing
+
+When contributing to this documentation:
+1. Follow the existing format and structure
+2. Update all relevant sections
+3. Verify technical accuracy
+4. Add clear descriptions and examples
+5. Update the version number and modification date
+
+### Support
+
+For questions or clarifications:
+- Review existing documentation thoroughly
+- Check related implementation code
+- Consult with the development team
+- Reference architectural diagrams
+
+### Version Information
+
+- Current Version: 1.0.0
+- Last Updated: [Current Date]
+- Format: Excel Workbooks (.xlsx)
+- Required Software: Microsoft Excel or compatible spreadsheet software
 
