@@ -6,16 +6,6 @@ This repository contains detailed documentation for two different implementation
 1. Chained Multi-outputs
 2. Hierarchical Modelling
 
-### Repository Structure
-
-```
-📁 Documentation/
-├── 📑 Chained_Multi_outputs_Components.xlsx
-├── 📑 Chained_Multi_outputs_Connectors.xlsx
-├── 📑 Hierarchical_Modelling_Components.xlsx
-└── 📑 Hierarchical_Modelling_Connectors.xlsx
-```
-
 ### File Descriptions
 
 #### 1. Chained Multi-outputs Documentation
